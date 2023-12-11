@@ -11,9 +11,11 @@
     <PackageReference Include="Microsoft.Azure.Functions.Worker" />
     <PackageReference Include="Microsoft.Azure.Functions.Worker.ApplicationInsights" />
     <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Http" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.ServiceBus" />
     <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" />
   </ItemGroup>
   <ItemGroup>
+    <PackageReference Include="CustomBinding.GooglePubSub.Worker" VersionOverride="1.2.3.4" />
     <PackageReference Include="CustomBinding.SFTP.Worker" VersionOverride="1.2.3.4" />
   </ItemGroup>
   <ItemGroup>
@@ -23,6 +25,10 @@
   </ItemGroup>
   <!-- HACK: Required for building the worker -->
   <ItemGroup>
+    <PackageReference Include="CustomBinding.GooglePubSub" VersionOverride="1.2.3.4">
+      <PrivateAssets>all</PrivateAssets>
+      <ExcludeAssets>compile;runtime</ExcludeAssets>
+    </PackageReference>
     <PackageReference Include="CustomBinding.SFTP" VersionOverride="1.2.3.4">
       <PrivateAssets>all</PrivateAssets>
       <ExcludeAssets>compile;runtime</ExcludeAssets>

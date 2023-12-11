@@ -2,11 +2,9 @@
   <PropertyGroup>
     <RootNamespace>CustomBinding.GooglePubSub</RootNamespace>
   </PropertyGroup>
+
   <ItemGroup>
     <PackageReference Include="Google.Cloud.PubSub.V1" />
-    <PackageReference Include="Microsoft.Azure.Functions.Extensions" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\CustomBinding.GooglePubSub.Core\CustomBinding.GooglePubSub.Core.csproj" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" />
   </ItemGroup>
 </Project>

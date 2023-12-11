@@ -1,4 +1,6 @@
 pushd extensions
+dotnet build CustomBinding.GooglePubSub.Core
+dotnet build CustomBinding.GooglePubSub.Worker
 dotnet build CustomBinding.GooglePubSub
 dotnet build CustomBinding.SFTP.Core
 dotnet build CustomBinding.SFTP.Worker

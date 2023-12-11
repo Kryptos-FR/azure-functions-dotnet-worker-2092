@@ -1,10 +1,10 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <RootNamespace>CustomBinding.GooglePubSub</RootNamespace>
+    <RootNamespace>CustomBinding.GooglePubSub.Worker</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Google.Cloud.PubSub.V1" />
-    <PackageReference Include="Microsoft.Azure.Functions.Extensions" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker.Core" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Abstractions" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\CustomBinding.GooglePubSub.Core\CustomBinding.GooglePubSub.Core.csproj" />

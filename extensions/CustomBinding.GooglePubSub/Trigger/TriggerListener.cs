@@ -12,9 +12,7 @@ public sealed class TriggerListener : IListener
 {
     private readonly ITriggeredFunctionExecutor _executor;
     private readonly IOptions<BindingOptions> _options;
-    private readonly GPubSubTriggerAttribute _config;
     private readonly ILogger _logger;
-    private readonly INameResolver _nameResolver;
     private readonly CancellationTokenSource _cancellationTokenSource;
 
     private readonly IGPubSubController _controller;
@@ -24,24 +22,14 @@ public sealed class TriggerListener : IListener
 
     public TriggerListener(ITriggeredFunctionExecutor executor,
         IOptions<BindingOptions> options,
-        GPubSubTriggerAttribute config,
-        ILogger logger,
-        INameResolver nameResolver)
+        ControllerConfig config,
+        ILogger logger)
     {
         _executor = executor;
         _options = options;
         _logger = logger;
 
-        _config = new GPubSubTriggerAttribute
-        {
-            ProjectId = nameResolver.TryResolveWholeString(config.ProjectId, out var id) ? id : config.ProjectId,
-            JwtToken = nameResolver.TryResolveWholeString(config.JwtToken, out var jwt) ? jwt : config.JwtToken,
-            SubscriptionName = config.SubscriptionName
-        };
-        _nameResolver = nameResolver;
-
-        _controller = new GPubSubController(_config, logger, options);
-
+        _controller = new GPubSubController(config, logger, options?.Value);
 
         _triggerTimer = new System.Timers.Timer
         {

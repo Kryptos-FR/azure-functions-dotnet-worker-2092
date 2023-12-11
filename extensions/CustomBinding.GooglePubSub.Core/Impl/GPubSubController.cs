@@ -1,5 +1,4 @@
 using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
 
 namespace CustomBinding.GooglePubSub;
 
@@ -7,16 +6,18 @@ public partial class GPubSubController : IGPubSubController
 {
     private readonly ILogger _logger;
     private readonly BindingOptions _options;
-    private readonly GPubSubAttribute _config;
+    private readonly ControllerConfig _config;
 
-    public GPubSubController(GPubSubAttribute config, ILogger logger, IOptions<BindingOptions> options)
+    public GPubSubController(ControllerConfig config, ILogger logger, BindingOptions options)
     {
         _logger = logger;
         _config = config;
-        _options = options?.Value;
+        _options = options;
 
         _logger.LogDebug($"Controller : {config.ProjectId}");
     }
+
+    public ControllerConfig Config => _config;
 
     public Task AcknowledgeAsync(string ackId)
     {
