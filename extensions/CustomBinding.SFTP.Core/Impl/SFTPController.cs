@@ -6,21 +6,23 @@ using Renci.SshNet.Sftp;
 
 namespace CustomBinding.SFTP;
 
-internal sealed class SFTPController : ISFTPController
+public sealed class SFTPController : ISFTPController
 {
-    private readonly SFTPBindingAttribute _config;
-    private readonly ILogger<SFTPBindingExtension> _logger;
+    private readonly ControllerConfig _config;
+    private readonly ILogger _logger;
     private readonly TelemetryClient _telemetryClient;
 
     internal static readonly Dictionary<string, SftpClient> _sftpClients = [];
     internal static readonly object _syncRoot = new();
 
-    public SFTPController(SFTPBindingAttribute config, ILogger<SFTPBindingExtension> logger, TelemetryClient telemetryClient)
+    public SFTPController(ControllerConfig config, ILogger logger, TelemetryClient telemetryClient)
     {
         _config = config;
         _logger = logger;
         _telemetryClient = telemetryClient;
     }
+
+    public ControllerConfig Config => _config;
 
     public void ClientDisconnection()
     {

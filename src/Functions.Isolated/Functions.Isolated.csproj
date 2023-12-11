@@ -3,17 +3,29 @@
     <AzureFunctionsVersion>v4</AzureFunctionsVersion>
     <OutputType>Exe</OutputType>
     <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>Functions.Isolated</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.ApplicationInsights.WorkerService" />
     <PackageReference Include="Microsoft.Azure.AppConfiguration.Functions.Worker" />
     <PackageReference Include="Microsoft.Azure.Functions.Worker" />
     <PackageReference Include="Microsoft.Azure.Functions.Worker.ApplicationInsights" />
+    <PackageReference Include="Microsoft.Azure.Functions.Worker.Extensions.Http" />
     <PackageReference Include="Microsoft.Azure.Functions.Worker.Sdk" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="CustomBinding.SFTP.Worker" VersionOverride="1.2.3.4" />
   </ItemGroup>
   <ItemGroup>
     <None Update="host.json">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <!-- HACK: Required for building the worker -->
+  <ItemGroup>
+    <PackageReference Include="CustomBinding.SFTP" VersionOverride="1.2.3.4">
+      <PrivateAssets>all</PrivateAssets>
+      <ExcludeAssets>compile;runtime</ExcludeAssets>
+    </PackageReference>
   </ItemGroup>
 </Project>
