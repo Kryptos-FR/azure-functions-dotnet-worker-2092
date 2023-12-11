@@ -2,4 +2,14 @@
   <PropertyGroup>
     <ManagePackageVersionsCentrally>true</ManagePackageVersionsCentrally>
   </PropertyGroup>
+  <!-- Azure/Microsoft -->
+  <ItemGroup>
+    <PackageVersion Include="Microsoft.ApplicationInsights" Version="2.22.0" />
+    <PackageVersion Include="Microsoft.Azure.Functions.Extensions" Version="1.1.0" />
+  </ItemGroup>
+  <!-- 3rd-party -->
+  <ItemGroup>
+    <PackageVersion Include="Renci.SshNet.Async" Version="1.4.0" />
+    <PackageVersion Include="SSH.NET" Version="2020.0.2" />
+  </ItemGroup>
 </Project>
