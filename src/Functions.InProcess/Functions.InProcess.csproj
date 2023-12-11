@@ -2,4 +2,19 @@
   <PropertyGroup>
     <AzureFunctionsVersion>v4</AzureFunctionsVersion>
   </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Azure.WebJobs" />
+    <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.ServiceBus" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.AzureAppConfiguration" />
+    <PackageReference Include="Microsoft.NET.Sdk.Functions" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\extensions\CustomBinding.GooglePubSub\CustomBinding.GooglePubSub.csproj" />
+    <ProjectReference Include="..\..\extensions\CustomBinding.SFTP\CustomBinding.SFTP.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="host.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
 </Project>

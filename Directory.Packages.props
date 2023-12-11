@@ -6,6 +6,10 @@
   <ItemGroup>
     <PackageVersion Include="Microsoft.ApplicationInsights" Version="2.22.0" />
     <PackageVersion Include="Microsoft.Azure.Functions.Extensions" Version="1.1.0" />
+    <PackageVersion Include="Microsoft.Azure.WebJobs" Version="3.0.39" />
+    <PackageVersion Include="Microsoft.Azure.WebJobs.Extensions.ServiceBus" Version="5.13.5" />
+    <PackageVersion Include="Microsoft.Extensions.Configuration.AzureAppConfiguration" Version="7.0.0" />
+    <PackageVersion Include="Microsoft.NET.Sdk.Functions" Version="4.2.0" />
   </ItemGroup>
   <!-- 3rd-party -->
   <ItemGroup>
