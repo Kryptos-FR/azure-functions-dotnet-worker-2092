@@ -5,4 +5,5 @@ popd
 
 pushd src
 dotnet build Functions.InProcess
+dotnet build Functions.Isolated
 popd
